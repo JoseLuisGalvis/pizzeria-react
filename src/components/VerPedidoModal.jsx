@@ -26,7 +26,7 @@ const VerPedidoModal = ({ showModal, handleClose, pedido, handleEnviarPedido }) 
       mensaje += "\n\n🚚 Delivery propio del negocio";
       mensaje += "\n💵 Pago en efectivo";
 
-      const numeroWhatsApp = "+5491133649070"; // Reemplaza con el número real
+      const numeroWhatsApp = "+549123456789"; // Reemplaza con el número real
       const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
       window.open(url, "_blank");
