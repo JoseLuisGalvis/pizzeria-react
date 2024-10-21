@@ -1,0 +1,102 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+  z-index: 1;
+}
+
+.hero-content {
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+
+.subtitle,
+.description {
+  display: none; /* Se mostrarán mediante JavaScript */
+  margin: 10px 0;
+}
+
+.cta-button {
+  background-color: #ff5733;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.3s, background-color 0.3s;
+  animation: heartbeat 1s infinite; /* Efecto de latido */
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Aumenta el tamaño */
+  }
+}
+
+.next-section {
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.tooltip-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block; /* Permite al tooltip posicionarse correctamente */
+}
+
+.telefono-icon {
+  width: 50px; /* Ajusta según necesites */
+  position: absolute; /* Cambia a absolute para posicionarlo */
+  bottom: 30%; /* Ajusta si es necesario */
+  right: 10%; /* 10% desde la derecha */
+  display: none; /* Oculto inicialmente */
+  z-index: 3; /* Asegúrate de que esté por encima del fondo */
+}
+
+.call-now {
+  color: white;
+  font-size: 1.5rem; /* Ajusta el tamaño de la fuente según necesites */
+  text-align: center;
+  position: absolute; /* Cambia a absolute para posicionarlo */
+  bottom: 0%; /* Alineado con la parte inferior del ícono */
+  right: 10%; /* Alineado con el ícono */
+  display: none; /* Oculto inicialmente */
+  z-index: 3; /* Asegúrate de que esté por encima del fondo */
+  transform: translateY(
+    -30px
+  ); /* Mueve el texto hacia arriba, si es necesario */
+}
+
+.telefono-icon:hover + .tooltip {
+  display: block; /* Muestra el tooltip al pasar el mouse */
+}

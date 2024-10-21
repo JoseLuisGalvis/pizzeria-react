@@ -1,0 +1,461 @@
+/* App.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "https://unpkg.com/transition-style/transition.hackpack.min.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #f66e06; /* Naranja, color primario */
+  --secondary-color: #212529; /* Gris oscuro, color secundario */
+
+  --neutral-dark: #333333; /* Color neutro oscuro para textos */
+  --neutral-light: #f0f0f0; /* Color neutro claro para fondos */
+  --white: #ffffff; /* Color blanco, usado en textos y fondos */
+
+  --orange-color: #f66e06; /* Naranja, usado en botones */
+  --orange-hover-color: #be5606; /* Naranja oscuro para hover */
+  --shadow-color: rgba(245, 164, 65, 0.5); /* Sombra anaranjada */
+  --white-shadow-color: rgba(255, 255, 255, 0.5); /* Sombra blanca para hover */
+  --footer-hover-color: #ff8c00; /* Naranja oscuro en hover en enlaces */
+
+  --black-color: #000000; /* Negro */
+  --dark-gray-color: #212529; /* Gris oscuro para dark mode */
+}
+
+/* Dark Mode */
+/* Estilos para el modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar {
+  background-color: #333333;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+  color: #ffffff;
+}
+
+body.dark-mode .card {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode .btn-orange {
+  background-color: #ff9800;
+  border-color: #ff9800;
+}
+
+body.dark-mode .btn-outline-secondary {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.dark-mode .footer {
+  background-color: #333333;
+}
+
+body.dark-mode .modal-content {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Estilos específicos para la sección de contacto en modo oscuro */
+
+body.dark-mode #contacto {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode #contacto h2,
+body.dark-mode #contacto h4,
+body.dark-mode #contacto label {
+  color: #ffffff !important;
+}
+
+body.dark-mode #contacto .form-control {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.dark-mode #contacto .form-control::placeholder {
+  color: #ffffff;
+  opacity: 1; /* Firefox */
+}
+
+body.dark-mode #contacto .btn-orange {
+  background-color: #ff9800;
+  border-color: #ff9800;
+}
+
+body.dark-mode #contacto .btn-outline-secondary {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/**/
+
+/* Estilos para el botón de alternancia */
+/* Estilos para el botón de alternancia */
+.toggle-button {
+  background-color: var(--orange-color); /* Usa el color naranja */
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative; /* Para posicionar los iconos uno encima del otro */
+  overflow: hidden; /* Oculta los iconos mientras se mueven */
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-button .sun-icon,
+.toggle-button .moon-icon {
+  font-size: 24px;
+  color: #ffffff;
+  position: absolute; /* Los posicionamos uno sobre otro */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.toggle-button .sun-icon {
+  transform: rotate(0deg);
+  opacity: 1; /* El sol es visible al inicio */
+}
+
+.toggle-button .moon-icon {
+  transform: rotate(-180deg);
+  opacity: 0; /* La luna es invisible al inicio */
+}
+
+/* Modo oscuro */
+body.dark-mode .toggle-button {
+  background-color: var(--white); /* Cambia el color en modo oscuro */
+}
+
+body.dark-mode .toggle-button .sun-icon {
+  transform: rotate(180deg); /* El sol rota y desaparece */
+  opacity: 0;
+}
+
+body.dark-mode .toggle-button .moon-icon {
+  transform: rotate(0deg); /* La luna rota y aparece */
+  opacity: 1;
+}
+
+/* Efecto de sombra */
+.toggle-button:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode #about {
+  background-color: #000;
+}
+
+body.dark-mode #about img {
+  border-radius: 5em 10em;
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
+}
+
+/**/
+
+#logo {
+  width: 3em;
+  height: 3em;
+  margin-right: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 5px 10px rgba(245, 164, 65, 0.5);
+}
+
+.btn-orange {
+  background-color: #f66e06;
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
+}
+
+.btn-orange:hover {
+  background-color: #be5606;
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline-secondary {
+  color: orange; /* Cambia el color del texto a naranja */
+  border-color: orange; /* Cambia el color del borde a naranja */
+}
+
+.btn-outline-secondary:hover {
+  background-color: orange; /* Cambia el fondo a naranja al pasar el mouse */
+  font-weight: 600;
+  color: white; /* Cambia el color del texto a blanco al pasar el mouse */
+}
+
+.navbar-toggler {
+  border-color: #ffffff !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Asegura que el contenido se distribuya */
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+.section-vh-100 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes zoom {
+  0% {
+    background-size: 120%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+  animation: zoom 6s ease-in-out;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.tooltip-container {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 100%; /* Aparece arriba del ícono */
+  right: 50%; /* Centrado respecto al ícono */
+  transform: translateX(50%); /* Ajustar la posición */
+  z-index: 5; /* Asegúrate de que esté por encima */
+}
+
+.telefono-icon {
+  width: 60px; /* Ajusta según necesites */
+  position: absolute;
+  bottom: 10%; /* Mantener la posición del icono */
+  right: 10%;
+  display: block; /* Se mostrará cuando sea necesario */
+  cursor: pointer;
+  z-index: 3;
+  filter: drop-shadow(0 8px 12px rgba(255, 255, 255, 0.5));
+}
+
+.call-now {
+  color: white;
+  font-size: 1.5rem; /* Ajusta el tamaño de la fuente según necesites */
+  text-align: center;
+  position: absolute;
+  top: 100%; /* Coloca el texto debajo del icono */
+  right: 10%;
+  z-index: 3;
+}
+
+.container {
+  position: relative; /* Asegúrate de que el contenido esté por encima del video */
+  z-index: 1;
+}
+
+.text-shadow {
+  text-shadow: 0 1px 1px #000, 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-section {
+  padding-top: 100px;
+}
+
+#menu-title {
+  padding-top: 100px;
+}
+
+/* Estilos base para las cards */
+.card {
+  box-shadow: 0 12px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: contain;
+}
+
+.card-body {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-text {
+  height: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+}
+
+/* Efectos hover */
+.card:hover {
+  background: rgb(231, 220, 209);
+  box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.card:hover .card-text {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Modo oscuro */
+body.dark-mode .card:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#emp-img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.footer {
+  padding: 2rem 0;
+}
+
+.footer i {
+  color: white; /* Color del texto de los enlaces */
+  transition: color 0.3s ease; /* Transición suave para el hover */
+}
+
+.footer i:hover {
+  color: #ff8c00; /* Naranja oscuro para el hover */
+}
+
+/* * *****   Transition.style en About   ***** * */
+@keyframes circle-in-center {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(125%);
+  }
+}
+
+[transition-style="in:circle:center"] {
+  animation: 30s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
+}
+
+#about {
+  background-color: rgb(231, 220, 209);
+  place-content: center;
+  z-index: -1;
+}
+
+body.dark-mode #about {
+  background-color: rgb(250, 249, 247, 0.1);
+  place-content: center;
+  z-index: -1;
+}
+
+body.dark-mode #contacto {
+  background-color: rgb(250, 249, 247, 0.1);
+  place-content: center;
+  z-index: -1;
+}
+
+#about img {
+  border-radius: 5em 10em;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#contacto {
+  background-color: rgb(231, 220, 209);
+  place-content: center;
+  z-index: -1;
+}
+
+/* * *****   Responsive   ***** * */
+@media (max-width: 768px) {
+  /* Estilos para tabletas y móviles */
+}
+
+@media (max-width: 576px) {
+  /* Estilos para dispositivos móviles */
+  #logo {
+    width: 2em;
+    height: 2em;
+    margin-right: 0.5em;
+  }
+
+  .navbar-toggler {
+    padding: 0.25em;
+  }
+
+  .navbar-brand {
+    margin: 0;
+  }
+
+  .navbar-brand h4 {
+    font-size: 0.8em;
+  }
+  .text {
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente del párrafo en dispositivos móviles */
+  }
+
+  .section-title {
+    font-size: 1.5rem; /* Ajusta el tamaño del título si es necesario */
+  }
+
+  .telefono-icon {
+    width: 50px; /* Ajusta según necesites */
+    bottom: 20% !important;
+  }
+}
