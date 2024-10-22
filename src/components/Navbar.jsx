@@ -28,6 +28,64 @@ const Navbar = () => {
     });
   }, []);
 
+  useEffect(() => {
+    // Enlaces que NO son dropdown-toggle (Enlaces normales)
+    const navbarLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+    
+    // Enlaces dentro de los dropdowns (opciones del submenú)
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    
+    // Elementos que despliegan los dropdowns
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  
+    // Cerrar menú principal al hacer clic en enlaces normales
+    navbarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: false
+        });
+        bsCollapse.hide(); // Cierra el menú colapsado
+      });
+    });
+  
+    // Cerrar menú principal al hacer clic en una opción del submenú
+    dropdownItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: false
+        });
+        bsCollapse.hide(); // Cierra el menú colapsado al seleccionar opción del submenú
+      });
+    });
+  
+    // Permitir que el dropdown se despliegue sin cerrar el menú principal
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        const isDropdownOpen = toggle.getAttribute('aria-expanded') === 'true';
+        if (!isDropdownOpen) {
+          e.stopPropagation(); // Evita que el menú principal se cierre al abrir el dropdown
+        }
+      });
+    });
+  
+    return () => {
+      // Limpiar los event listeners
+      navbarLinks.forEach(link => {
+        link.removeEventListener('click', () => {});
+      });
+      dropdownItems.forEach(item => {
+        item.removeEventListener('click', () => {});
+      });
+      dropdownToggles.forEach(toggle => {
+        toggle.removeEventListener('click', () => {});
+      });
+    };
+  }, []);
+  
+  
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
@@ -43,7 +101,6 @@ const Navbar = () => {
 
   // Calcular cantidad total de items
   const cantidadTotal = order.reduce((total, item) => total + item.cantidad, 0);
-
 
   return (
     <>
@@ -66,27 +123,33 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item"><a className="nav-link" href="#hero" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Inicio</a></li>
-              <li className="nav-item"><a className="nav-link" href="#about" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Nosotros</a></li>
+              <li className="nav-item">
+                <a className="nav-link" href="#hero">Inicio</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#about">Nosotros</a>
+              </li>
               <li className="nav-item dropdown">
-                <a 
-                  className="nav-link dropdown-toggle" 
-                  href="#menu" 
-                  id="navbarDropdown" 
-                  role="button" 
-                  data-bs-toggle="dropdown" 
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#menu"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Menú
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="#menu_1" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Pizzas</a></li>
-                  <li><a className="dropdown-item" href="#menu_2" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Empanadas</a></li>
-                  <li><a className="dropdown-item" href="#menu_3" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Bebidas</a></li>
-                  <li><a className="dropdown-item" href="#menu_4" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Postres</a></li>
+                  <li><a className="dropdown-item" href="#menu_1">Pizzas</a></li>
+                  <li><a className="dropdown-item" href="#menu_2">Empanadas</a></li>
+                  <li><a className="dropdown-item" href="#menu_3">Bebidas</a></li>
+                  <li><a className="dropdown-item" href="#menu_4">Postres</a></li>
                 </ul>
               </li>
-              <li className="nav-item"><a className="nav-link" href="#contacto" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Contacto</a></li>
+              <li className="nav-item">
+                <a className="nav-link" href="#contacto">Contacto</a>
+              </li>
             </ul>
           </div>
           {/* Botón para ver el pedido actual */}
@@ -114,5 +177,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
