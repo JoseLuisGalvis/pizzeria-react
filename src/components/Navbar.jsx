@@ -66,8 +66,8 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item"><a className="nav-link" href="#hero">Inicio</a></li>
-              <li className="nav-item"><a className="nav-link" href="#about">Nosotros</a></li>
+              <li className="nav-item"><a className="nav-link" href="#hero" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Inicio</a></li>
+              <li className="nav-item"><a className="nav-link" href="#about" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Nosotros</a></li>
               <li className="nav-item dropdown">
                 <a 
                   className="nav-link dropdown-toggle" 
@@ -80,13 +80,13 @@ const Navbar = () => {
                   Menú
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="#menu_1">Pizzas</a></li>
-                  <li><a className="dropdown-item" href="#menu_2">Empanadas</a></li>
-                  <li><a className="dropdown-item" href="#menu_3">Bebidas</a></li>
-                  <li><a className="dropdown-item" href="#menu_4">Postres</a></li>
+                  <li><a className="dropdown-item" href="#menu_1" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Pizzas</a></li>
+                  <li><a className="dropdown-item" href="#menu_2" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Empanadas</a></li>
+                  <li><a className="dropdown-item" href="#menu_3" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Bebidas</a></li>
+                  <li><a className="dropdown-item" href="#menu_4" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Postres</a></li>
                 </ul>
               </li>
-              <li className="nav-item"><a className="nav-link" href="#contacto">Contacto</a></li>
+              <li className="nav-item"><a className="nav-link" href="#contacto" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Contacto</a></li>
             </ul>
           </div>
           {/* Botón para ver el pedido actual */}
