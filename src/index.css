@@ -1,1 +1,9 @@
-
+/*
+La arquitectura de la landing page en React está bien estructurada y modular, 
+utilizando componentes funcionales y el contexto de React para manejar el estado global.
+ Cada componente tiene una responsabilidad clara y se comunica con otros componentes 
+ a través de props y el contexto. Además, se utilizan hooks como useState, useEffect,
+  useContext y useRef para manejar el estado, efectos secundarios y referencias a elementos del DOM.
+   La integración de bibliotecas externas como emailjs y aos también mejora la funcionalidad
+    y la experiencia del usuario.
+    */
