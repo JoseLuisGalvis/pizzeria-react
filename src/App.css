@@ -280,6 +280,53 @@ body.dark-mode #about img {
   z-index: 5; /* Asegúrate de que esté por encima */
 }
 
+/* Contenedor del tooltip */
+.tooltip-container {
+  position: relative; /* Necesario para posicionar el tooltip */
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Texto del tooltip oculto por defecto */
+.tooltip-text {
+  visibility: hidden;
+  width: 150px; /* Ajusta el tamaño según el contenido */
+  background-color: #333; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+
+  /* Posicionamiento del tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Justo encima del icono */
+  left: 75%;
+  transform: translateX(-50%);
+
+  /* Efecto de transición */
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  /* Flecha */
+  ::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Colocar justo debajo del tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+}
+
+/* Mostrar el tooltip al hacer hover */
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 .telefono-icon {
   width: 60px; /* Ajusta según necesites */
   position: absolute;

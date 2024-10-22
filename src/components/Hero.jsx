@@ -47,18 +47,19 @@ export const Hero = () => {
             </div>
           </div>
           {showPhone && (
-            <div className="tooltip-container"                
-              data-aos="animate__heartBeat" 
-              data-aos-duration="3000" 
-            >
-              <img 
-                src="/images/icon.png" 
-                alt="Teléfono" 
-                className="telefono-icon" 
-              />
-              <span className="tooltip">Llama al 123-456-7890</span>
-              <p className="call-now">Llama YA!</p>
-            </div>
+            <div className="tooltip-container" 
+            data-aos="animate__heartBeat" 
+            data-aos-duration="3000"
+          >
+            <img 
+              src="/images/icon.png" 
+              alt="Teléfono" 
+              className="telefono-icon" 
+            />
+            <span className="tooltip-text">Escribe al +5491234567890</span>
+            <p className="call-now">Llama YA!</p>
+          </div>
+          
           )}
         </div>
       </div>
